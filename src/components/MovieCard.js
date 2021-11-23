@@ -48,7 +48,7 @@ export default function MovieCard() {
                 <p className="row-bottom-margin">20/11 20h</p>
                 <p className="row-bottom-margin">Telecine Premium</p>
                 <p>Discord: nPmnW/Yo</p>
-                <button type="button" className="btn btn-secondary">Edit</button>
+                <button type="button" className="btn btn-outline-warning">Edit</button>
 
             </div>
         </div>
