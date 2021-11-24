@@ -1,10 +1,12 @@
-import { useState, useNavigate } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 
 
 export default function CreateSession() {
 
     const navigate = useNavigate();
+
     const [session, setSession] = useState({
         title: "",
         date: "",
