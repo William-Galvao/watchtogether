@@ -1,3 +1,9 @@
+import netflix from "../assets/netflix.png";
+import primevideo from "../assets/primevideo.png";
+import disneyplus from "../assets/disneyplus.png";
+import discord from "../assets/discord.png";
+import zoom from "../assets/zoom.png";
+import slack from "../assets/slack.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
@@ -8,7 +14,7 @@ export default function CreateSession() {
     const navigate = useNavigate();
 
     const [session, setSession] = useState({
-        title: "",
+        tittle: "",
         date: "",
         streaming: "",
         voip: "",
@@ -36,58 +42,77 @@ export default function CreateSession() {
 
 
     return (
-        <form>
+        <form className="div-adjust">
 
-            <label htmlFor="tittle">
-                Tittle:
-            </label>
-            <input
-                id="tittle"
-                value={session.title}
-                type="text"
-                onChange={handleChange}
-                name="tittle"
-            />
+            <div className="form-group row">
+                <label htmlFor="tittle" className="col-sm-2 col-form-label hero-subtitle">Tittle</label>
+                <div className="col-sm-10">
+                    <input type="text" id="tittle" value={session.tittle} name="tittle" onChange={handleChange} />
+                </div>
+            </div>
 
-            <label htmlFor="date">
-                Date:
-            </label>
-            <input
-                id="date"
-                value={session.date}
-                type="date"
-                onChange={handleChange}
-                name="date"
-            />
+            <div className="form-group row">
+                <label htmlFor="date" className="col-sm-2 col-form-label hero-subtitle">Date</label>
+                <div className="col-sm-10">
+                    <input type="datetime-local" id="date" value={session.date} name="date" onChange={handleChange} />
+                </div>
+            </div>
 
-            <label htmlFor="streaming">
-                Streaming:
-            </label>
-            <input
-                id="streaming"
-                value={session.streaming}
-                type="text"
-                onChange={handleChange}
-                name="streaming"
-            />
+            <fieldset className="form-group" />
+            <div className="row">
+                <legend className="col-form-label col-sm-2 pt-0 hero-subtitle">Streaming</legend>
+                <div className="col-sm-10">
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming1" onChange={handleChange} value={session.streaming} />
+                        <label className="form-check-label hero-subtitle m-3" htmlFor="streaming1">
+                            <img src={netflix} alt="netflix" className="logo-size" />
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming2" onChange={handleChange} value={session.streaming} />
+                        <label className="form-check-label hero-subtitle m-3" htmlFor="streaming2">
+                            <img src={primevideo} alt="primevideo" className="logo-size" />
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming3" onChange={handleChange} value={session.streaming} />
+                        <label className="form-check-label hero-subtitle m-3" htmlFor="streaming3">
+                            <img src={disneyplus} alt="disneyplus" className="logo-size" />
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-            <label htmlFor="voip">
-                Voip:
-            </label>
-            <input
-                id="voip"
-                value={session.voip}
-                type="text"
-                onChange={handleChange}
-                name="voip"
-            />
 
-            <button
-                type="submit"
-                onClick={handleSubmit}
-            >
+            <fieldset className="form-group" />
+            <div className="row">
+                <legend className="col-form-label col-sm-2 pt-0 hero-subtitle">Voip</legend>
+                <div className="col-sm-10">
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="voip" id="voip1" onChange={handleChange} value={session.voip} />
+                        <label className="form-check-label hero-subtitle" htmlFor="voip1">
+                            <img src={discord} alt="discord" className="logo-size" />
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="voip" id="voip2" onChange={handleChange} value={session.voip} />
+                        <label className="form-check-label hero-subtitle" htmlFor="voip2">
+                            <img src={zoom} alt="zoom" className="logo-size" />
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="voip" id="voip3" onChange={handleChange} value={session.voip} />
+                        <label className="form-check-label hero-subtitle" htmlFor="voip3">
+                            <img src={slack} alt="slack" className="logo-size" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" className="btn btn-outline-warning" onClick={handleSubmit}>
                 Create your session!
             </button>
+
 
 
         </form>
