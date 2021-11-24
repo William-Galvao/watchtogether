@@ -1,6 +1,7 @@
 import AddButton from "./AddButton";
 import MovieCard from "./MovieCard";
 import Hero from "./Hero"
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -15,7 +16,7 @@ export default function Home() {
                 </div>
                 <div className="col-6 mt-5" style={{ color: "white" }}>
                     <MovieCard />
-                </div>
+                </div>  
 
             </div>
         </>

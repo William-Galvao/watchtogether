@@ -1,7 +1,9 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import CreateTopic from './CreateTopic';
+import CreateSession from './CreateSession';
+import EditSession from './EditSession';
+
 
 
 
@@ -11,8 +13,9 @@ function App() {
       <div>
         <Routes>
           <Route element={<Home />} path="/" />
-          <Route element={<CreateTopic />} path="/createtopic" />
-        
+          <Route element={<CreateSession />} path="/createsession" />
+          <Route element={<EditSession />} path="/editsession/:id" />
+          
         </Routes>
       </div>
     </div>
