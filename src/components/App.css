@@ -55,5 +55,22 @@
   font-family: 'Teko', sans-serif;
 }
 
+.div-adjust {
+  padding: 20px;
+}
+
+.center {
+  align-items: center;
+}
+
+.logo-size {
+  width: 60px;
+  height: auto;
+}
+
+.radio-distance {
+  margin: 3px;
+}
+
 
 
