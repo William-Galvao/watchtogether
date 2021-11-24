@@ -24,7 +24,7 @@ export default function CreateSession() {
     function handleChange(e) {
         setSession(
             {
-                ...session, [e.target.name]: e.target.value,
+                ...session, [e.target.name]: e.target.value || e.target.checked
             }
         )
     }
@@ -63,19 +63,19 @@ export default function CreateSession() {
                 <legend className="col-form-label col-sm-2 pt-0 hero-subtitle">Streaming</legend>
                 <div className="col-sm-10">
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="streaming" id="streaming1" onChange={handleChange} value={session.streaming} />
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming1" onChange={handleChange} value="Netflix" checked={session.streaming === "Netflix"} />
                         <label className="form-check-label hero-subtitle m-3" htmlFor="streaming1">
                             <img src={netflix} alt="netflix" className="logo-size" />
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="streaming" id="streaming2" onChange={handleChange} value={session.streaming} />
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming2" onChange={handleChange} value="Prime Video" checked={session.streaming === "Prime Video"} />
                         <label className="form-check-label hero-subtitle m-3" htmlFor="streaming2">
                             <img src={primevideo} alt="primevideo" className="logo-size" />
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="streaming" id="streaming3" onChange={handleChange} value={session.streaming} />
+                        <input className="form-check-input" type="radio" name="streaming" id="streaming3" onChange={handleChange} value="Disney Plus" checked={session.streaming === "Disney Plus"} />
                         <label className="form-check-label hero-subtitle m-3" htmlFor="streaming3">
                             <img src={disneyplus} alt="disneyplus" className="logo-size" />
                         </label>
@@ -89,19 +89,19 @@ export default function CreateSession() {
                 <legend className="col-form-label col-sm-2 pt-0 hero-subtitle">Voip</legend>
                 <div className="col-sm-10">
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="voip" id="voip1" onChange={handleChange} value={session.voip} />
+                        <input className="form-check-input" type="radio" name="voip" id="voip1" onChange={handleChange} value="Discord" checked={session.voip === "Discord"} />
                         <label className="form-check-label hero-subtitle" htmlFor="voip1">
                             <img src={discord} alt="discord" className="logo-size" />
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="voip" id="voip2" onChange={handleChange} value={session.voip} />
+                        <input className="form-check-input" type="radio" name="voip" id="voip2" onChange={handleChange} value="Zoom" checked={session.voip === "Zoom"} />
                         <label className="form-check-label hero-subtitle" htmlFor="voip2">
                             <img src={zoom} alt="zoom" className="logo-size" />
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="voip" id="voip3" onChange={handleChange} value={session.voip} />
+                        <input className="form-check-input" type="radio" name="voip" id="voip3" onChange={handleChange} value="Slack" checked={session.voip === "Slack"} />
                         <label className="form-check-label hero-subtitle" htmlFor="voip3">
                             <img src={slack} alt="slack" className="logo-size" />
                         </label>
