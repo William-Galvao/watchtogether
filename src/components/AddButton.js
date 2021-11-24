@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
+
 export default function AddButton() {
     return (
-        <button type="button" className="btn btn-outline-warning">Create a new movie session!</button>
+        <Link to="/createsession"><button type="button" className="btn btn-outline-warning">Create a new movie session!</button></Link>
     )
 }
