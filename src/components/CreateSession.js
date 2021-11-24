@@ -18,6 +18,7 @@ export default function CreateSession() {
         date: "",
         streaming: "",
         voip: "",
+        address: "",
 
     })
 
@@ -106,6 +107,13 @@ export default function CreateSession() {
                             <img src={slack} alt="slack" className="logo-size" />
                         </label>
                     </div>
+                </div>
+            </div>
+
+            <div className="form-group row">
+                <label htmlFor="address" className="col-sm-2 col-form-label hero-subtitle">Voip Address</label>
+                <div className="col-sm-10">
+                    <input type="text" id="address" value={session.address} name="address" onChange={handleChange} />
                 </div>
             </div>
 

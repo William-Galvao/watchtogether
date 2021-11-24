@@ -4,7 +4,7 @@ import Home from "./Home";
 import CreateSession from './CreateSession';
 
 
-
+const apiKey = process.env.REACT_APP_API
 
 function App() {
   return (
