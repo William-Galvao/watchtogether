@@ -4,53 +4,45 @@ import axios from "axios"
 
 export default function MovieCard() {
 
-    // ESTRUTURA PRONTA PARA RECEBER OS DADOS DA API DE SESSIONS E FAZER O MAP NO RETURN PARA PREENCHER A HOME.
-    // const [sessions, setSessions] = useState([]);
 
-    // useEffect (() => {
-    //     axios.get("").then(response => {
-    //         setSessions([...response.data])
-    //     }
+    const [sessions, setSessions] = useState([]);
 
-    //     ).catch(err => console.log(err))
-    // }, [])
+    useEffect(() => {
+        axios.get("https://ironrest.herokuapp.com/watchtogether").then(response => {
+            setSessions([...response.data])
+        }
+
+        ).catch(err => console.log(err))
+    }, [])
 
 
 
-    // ESTRUTURA DO MAP PARA RETORNAR A LISTA DE SESSÕES NA HOME.
-    // {sessions.map(currentSessionObj => 
-    //     <div className="col-6 text-center">
-    //             <img className="img-fluid movie-img" src= VEM DA API EXT alt=´${currentSessionObj.name}´ />
-    //             <h2 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{currentSessionObj.name}}</h2>
-    //             <h4> VEM DA API EXT </h4>
-    //         </div>
-    //         <div className="col-6">
-    //             <p className="row-bottom-margin">{currentSessionObj.date}}</p>
-    //             <p className="row-bottom-margin">{currentSessionObj.streaming}</p>
-    //             <p>{currentSessionObj.voip}}</p>
-    //             <button type="button" className="btn btn-secondary">Edit</button>
 
-    //         </div>
 
-    //     )}
+
 
 
 
 
     return (
-        <div className="row">
-            <div className="col-6 text-center">
-                <img className="img-fluid movie-img" src={movieimg} alt="movie" />
-                <h2 className="row-bottom-margin" style={{ paddingTop: "10px" }}>Sophie's Choice</h2>
-                <h4>1982</h4>
-            </div>
-            <div className="col-6">
-                <p className="row-bottom-margin">20/11 20h</p>
-                <p className="row-bottom-margin">Telecine Premium</p>
-                <p>Discord: nPmnW/Yo</p>
-                <button type="button" className="btn btn-outline-warning">Edit</button>
+        <div>
+            {sessions.map(sessionObj =>
 
-            </div>
+                <div className="row hero-subtitle">
+                    <div className="col-6 text-center mt-5">
+                        <img className="img-fluid movie-img" src={movieimg} alt="movie" />
+                        <h2 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{sessionObj.tittle}</h2>
+                        <h4>1982</h4>
+                    </div>
+                    <div className="col-6 mt-5">
+                        <p className="row-bottom-margin">{sessionObj.date}</p>
+                        <p className="row-bottom-margin">{sessionObj.streaming}</p>
+                        <p>{sessionObj.voip}: nPmnW/Yo</p>
+                        <button type="button" className="btn btn-outline-warning">Edit</button>
+
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

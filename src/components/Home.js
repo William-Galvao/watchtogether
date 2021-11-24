@@ -11,13 +11,7 @@ export default function Home() {
                 <AddButton />
             </div>
             <div className="row" style={{ margin: "5px" }}>
-                <div className="col-6 mt-5" style={{ color: "white" }}>
-                    <MovieCard />
-                </div>
-                <div className="col-6 mt-5" style={{ color: "white" }}>
-                    <MovieCard />
-                </div>  
-
+                <MovieCard />
             </div>
         </>
     )
