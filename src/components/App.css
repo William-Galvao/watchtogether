@@ -1,8 +1,9 @@
-.App {
-  background-image: linear-gradient(rgb(3,14,57), rgb(1,46,101));
-
-  width: 100vw;
-  height: 100vh;
+body {
+  background-image: linear-gradient(to bottom right, rgb(3,14,57), rgb(1,46,101));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 
 .btn {
@@ -67,8 +68,10 @@
   height: auto;
 }
 
-.radio-distance {
-  margin: 3px;
+.back-color{
+  background-color: #030E39;
+  border: 1px solid #FFC107;
+  margin-top: 15px;
 }
 
 
