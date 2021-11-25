@@ -16,26 +16,27 @@ export default function EditSession() {
     const navigate = useNavigate();
 
     const [session, setSession] = useState({
-        tittle: "",
         date: "",
         streaming: "",
         voip: "",
-
+        address: "",
     })
 
     useEffect(() => {
         async function fetchSession() {
-            try{
+            try {
                 const response = await axios.get(`https://ironrest.herokuapp.com/watchtogether/${params.id}`);
-                setSession({...response.data})
-            }catch(err) {
+                setSession({ ...response.data })
+                console.log(response.data);
+                console.log(params.id);
+            } catch (err) {
                 console.error(err);
             }
         }
-        fetchSession() 
+        fetchSession()
 
-        
-    }, [params.id]) 
+
+    }, [params.id])
 
     function handleChange(e) {
         setSession(
@@ -48,7 +49,7 @@ export default function EditSession() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.post("https://ironrest.herokuapp.com/watchtogether", session);
+            await axios.put(`https://ironrest.herokuapp.com/watchtogether/${params.id}`, session);
             navigate("/");
 
         } catch (error) {
@@ -60,12 +61,7 @@ export default function EditSession() {
     return (
         <form className="div-adjust">
 
-            <div className="form-group row">
-                <label htmlFor="tittle" className="col-sm-2 col-form-label hero-subtitle">Tittle</label>
-                <div className="col-sm-10">
-                    <input type="text" id="tittle" value={session.tittle} name="tittle" onChange={handleChange} />
-                </div>
-            </div>
+
 
             <div className="form-group row">
                 <label htmlFor="date" className="col-sm-2 col-form-label hero-subtitle">Date</label>
@@ -122,6 +118,12 @@ export default function EditSession() {
                             <img src={slack} alt="slack" className="logo-size" />
                         </label>
                     </div>
+                </div>
+            </div>
+            <div className="form-group row">
+                <label htmlFor="address" className="col-sm-2 col-form-label hero-subtitle">Voip Address</label>
+                <div className="col-sm-10">
+                    <input type="text" placeholder="https://" id="address" value={session.address} name="address" onChange={handleChange} />
                 </div>
             </div>
 

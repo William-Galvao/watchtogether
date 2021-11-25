@@ -7,26 +7,46 @@ import slack from "../assets/slack.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import AsyncSelect from 'react-select/async';
 
+const apiKey = process.env.REACT_APP_API;
+const fetchMoviesOpt = async (inputValue) => {
+    if (!inputValue) return;
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${inputValue}`);
+    const movies = (await response.json()).results
+    return movies.map(movie => ({ label: movie.title, value: movie }));
+
+}
 
 export default function CreateSession() {
+
 
     const navigate = useNavigate();
 
     const [session, setSession] = useState({
-        tittle: "",
         date: "",
         streaming: "",
         voip: "",
         address: "",
+        movie: null,
 
     })
+
 
     function handleChange(e) {
         setSession(
             {
                 ...session, [e.target.name]: e.target.value || e.target.checked
             }
+        )
+    }
+
+    function handleMovieSelect(selectedMovie) {
+        setSession(
+            {
+                ...session, movie: selectedMovie.value
+            }
+
         )
     }
 
@@ -48,7 +68,7 @@ export default function CreateSession() {
             <div className="form-group row">
                 <label htmlFor="tittle" className="col-sm-2 col-form-label hero-subtitle">Tittle</label>
                 <div className="col-sm-10">
-                    <input type="text" id="tittle" value={session.tittle} name="tittle" onChange={handleChange} />
+                    <AsyncSelect cacheOptions defaultOptions onChange={handleMovieSelect} loadOptions={fetchMoviesOpt} />
                 </div>
             </div>
 
@@ -113,7 +133,7 @@ export default function CreateSession() {
             <div className="form-group row">
                 <label htmlFor="address" className="col-sm-2 col-form-label hero-subtitle">Voip Address</label>
                 <div className="col-sm-10">
-                    <input type="text" id="address" value={session.address} name="address" onChange={handleChange} />
+                    <input type="text" placeholder="https://" id="address" value={session.address} name="address" onChange={handleChange} />
                 </div>
             </div>
             <div className="d-flex flex-row-reverse mt-3">

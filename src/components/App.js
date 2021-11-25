@@ -5,7 +5,6 @@ import CreateSession from './CreateSession';
 import EditSession from './EditSession';
 
 
-const apiKey = process.env.REACT_APP_API
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<CreateSession />} path="/createsession" />
           <Route element={<EditSession />} path="/editsession/:id" />
-          
+
         </Routes>
       </div>
     </div>
