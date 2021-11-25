@@ -5,7 +5,7 @@ import CreateSession from './CreateSession';
 import EditSession from './EditSession';
 
 
-
+const apiKey = process.env.REACT_APP_API
 
 function App() {
   return (

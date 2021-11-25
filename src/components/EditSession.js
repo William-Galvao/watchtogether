@@ -126,7 +126,7 @@ export default function EditSession() {
             </div>
 
             <button type="submit" className="btn btn-outline-warning" onClick={handleSubmit}>
-                Create your session!
+                Edite your session!
             </button>
 
 

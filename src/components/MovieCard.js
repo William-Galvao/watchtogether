@@ -1,7 +1,13 @@
 import movieimg from "../assets/movietest.jpeg"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom";
+import netflix from "../assets/netflix.png";
+import primevideo from "../assets/primevideo.png";
+import disneyplus from "../assets/disneyplus.png";
+import discord from "../assets/discord.png";
+import zoom from "../assets/zoom.png";
+import slack from "../assets/slack.png";
+import EditSession from "./EditSession";
 
 export default function MovieCard() {
 
@@ -15,7 +21,41 @@ export default function MovieCard() {
 
         ).catch(err => console.log(err))
     }, [])
-    
+
+
+
+    function checkStreaming(streaming) {
+        if (streaming === "Netflix") {
+            return <img src={netflix} alt="netflix" className="logo-size" />
+        }
+        if (streaming === "Prime Video") {
+            return <img src={primevideo} alt="primevideo" className="logo-size" />
+        }
+        if (streaming === "Disney Plus") {
+            return <img src={disneyplus} alt="disneyplus" className="logo-size" />
+        }
+    }
+
+    function checkVoip(voip) {
+        if (voip === "Discord") {
+            return <img src={discord} alt="discord" className="logo-size" />
+        }
+        if (voip === "Zoom") {
+            return <img src={zoom} alt="zoom" className="logo-size" />
+        }
+        if (voip === "Slack") {
+            return <img src={slack} alt="slack" className="logo-size" />
+        }
+    }
+
+    async function handleDelete(id) {
+        try{
+        await axios.delete(`https://ironrest.herokuapp.com/watchtogether${id}`);
+        }catch (err) {
+            console.error(err)
+        }
+    }
+
     return (
         <div>
             {sessions.map(sessionObj =>
@@ -28,9 +68,11 @@ export default function MovieCard() {
                     </div>
                     <div className="col-6 mt-5">
                         <p className="row-bottom-margin">{sessionObj.date}</p>
-                        <p className="row-bottom-margin">{sessionObj.streaming}</p>
-                        <p>{sessionObj.voip}: nPmnW/Yo</p>
-                        <Link to={`/editsession/${sessionObj._id}`}><button type="button" className="btn btn-outline-warning">Edit</button></Link>
+                        <p className="row-bottom-margin">{checkStreaming(sessionObj.streaming)}</p>
+                        <p>{checkVoip(sessionObj.voip)}</p>
+                        <p style={{ color: "white" }}>{sessionObj.address} </p>
+                        <button type="button" className="btn btn-warning m-3">Edit</button>
+                        <button type="button" className="btn btn-warning" onClick={() => (handleDelete())}>Delete</button>
 
                     </div>
                 </div>
@@ -38,3 +80,4 @@ export default function MovieCard() {
         </div>
     )
 }
+
