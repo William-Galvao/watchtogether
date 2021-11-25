@@ -66,8 +66,8 @@ export default function MovieCard() {
                         <p className="row-bottom-margin">{checkStreaming(sessionObj.streaming)}</p>
                         <p>{checkVoip(sessionObj.voip)}</p>
                         <p style={{ color: "white" }}>{sessionObj.address} </p>
-                        <button type="button" className="btn btn-outline-warning m-3">Edit</button>
-                        <button type="button" className="btn btn-outline-warning">Delete</button>
+                        <button type="button" className="btn btn-warning m-3">Edit</button>
+                        <button type="button" className="btn btn-warning">Delete</button>
 
                     </div>
                 </div>
