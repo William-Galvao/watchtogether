@@ -32,7 +32,7 @@ export default function EditSession() {
                 console.error(err);
             }
         }
-        fetchSession() 
+        fetchSession(); 
 
         
     }, [params.id]) 

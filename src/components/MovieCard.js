@@ -1,6 +1,7 @@
 import movieimg from "../assets/movietest.jpeg"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 export default function MovieCard() {
 
@@ -14,16 +15,7 @@ export default function MovieCard() {
 
         ).catch(err => console.log(err))
     }, [])
-
-
-
-
-
-
-
-
-
-
+    
     return (
         <div>
             {sessions.map(sessionObj =>
@@ -38,7 +30,7 @@ export default function MovieCard() {
                         <p className="row-bottom-margin">{sessionObj.date}</p>
                         <p className="row-bottom-margin">{sessionObj.streaming}</p>
                         <p>{sessionObj.voip}: nPmnW/Yo</p>
-                        <button type="button" className="btn btn-outline-warning">Edit</button>
+                        <Link to={`/editsession/${sessionObj._id}`}><button type="button" className="btn btn-outline-warning">Edit</button></Link>
 
                     </div>
                 </div>
