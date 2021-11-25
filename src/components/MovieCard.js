@@ -55,20 +55,20 @@ export default function MovieCard() {
         <div>
             {sessions.map(sessionObj =>
 
-                <div className="row hero-subtitle">
+                <div className="row hero-subtitle d-flex flex-row-reverse">
                     <div className="col-6 text-center mt-5">
-                        <img className="img-fluid movie-img" src={movieimg} alt="movie" />
-                        <h2 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{sessionObj.tittle}</h2>
-                        <h4>1982</h4>
-                    </div>
-                    <div className="col-6 mt-5">
-                        <p className="row-bottom-margin">{sessionObj.date}</p>
-                        <p className="row-bottom-margin">{checkStreaming(sessionObj.streaming)}</p>
-                        <p>{checkVoip(sessionObj.voip)}</p>
-                        <p style={{ color: "white" }}>{sessionObj.address} </p>
-                        <button type="button" className="btn btn-warning m-3">Edit</button>
-                        <button type="button" className="btn btn-warning">Delete</button>
+                        <img className="img-fluid movie-img mt-3" src={movieimg} alt="movie" />
 
+                    </div>
+                    <div className="col-6 mt-5 p-2">
+                        <h3 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{sessionObj.tittle}</h3>
+                        <p className="row-bottom-margin">{sessionObj.date}</p>
+                        <p className="mt-3">{checkStreaming(sessionObj.streaming)}</p>
+                        <p className="mt-3">{checkVoip(sessionObj.voip)}</p>
+                        <div className="d-flex justify-content-around">
+                            <button type="button" className="btn btn-warning">Edit</button>
+                            <button type="button" className="btn btn-warning">Delete</button>
+                        </div>
                     </div>
                 </div>
             )}
