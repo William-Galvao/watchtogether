@@ -34,7 +34,7 @@ body {
 }
 
 .movie-img {
-  border: 2px solid #FFC107;
+  border: 2px solid white;
   border-radius: 10%;
 }
 
@@ -51,7 +51,7 @@ body {
 
 .hero-subtitle {
   text-shadow: 2px 2px #030E39;
-  color: #FFC107;
+  color: white;
   font-family: 'Teko', sans-serif;
 }
 

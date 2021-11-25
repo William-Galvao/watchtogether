@@ -59,7 +59,7 @@ export default function CreateSession() {
                 </div>
             </div>
 
-            <fieldset className="form-group" />
+            <fieldset className="form-group mt-3" />
             <div className="row">
                 <legend className="col-form-label col-sm-2 pt-0 hero-subtitle">Streaming</legend>
                 <div className="col-sm-10">
@@ -116,10 +116,11 @@ export default function CreateSession() {
                     <input type="text" id="address" value={session.address} name="address" onChange={handleChange} />
                 </div>
             </div>
-
-            <button type="submit" className="btn btn-outline-warning" onClick={handleSubmit}>
-                Create your session!
-            </button>
+            <div className="d-flex flex-row-reverse mt-3">
+                <button type="submit" className="btn btn-warning p-2" onClick={handleSubmit}>
+                    Create your session!
+                </button>
+            </div>
 
 
 
