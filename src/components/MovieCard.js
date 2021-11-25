@@ -47,6 +47,14 @@ export default function MovieCard() {
         }
     }
 
+    async function handleDelete(id) {
+        try {
+            await axios.delete(`https://ironrest.herokuapp.com/watchtogether/${id}`);
+            window.location.reload();
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
 
 
@@ -62,12 +70,12 @@ export default function MovieCard() {
                     </div>
                     <div className="col-6 mt-5 p-2">
                         <h3 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{sessionObj.tittle}</h3>
-                        <p className="row-bottom-margin">{sessionObj.date}</p>
+                        <p className="row-bottom-margin">{(sessionObj.date).replace("T", " ")}</p>
                         <p className="mt-3">{checkStreaming(sessionObj.streaming)}</p>
                         <p className="mt-3">{checkVoip(sessionObj.voip)}</p>
                         <div className="d-flex justify-content-around">
                             <button type="button" className="btn btn-warning">Edit</button>
-                            <button type="button" className="btn btn-warning">Delete</button>
+                            <button type="button" className="btn btn-warning" onClick={() => { handleDelete(sessionObj._id) }}>Delete</button>
                         </div>
                     </div>
                 </div>
