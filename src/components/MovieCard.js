@@ -60,12 +60,12 @@ export default function MovieCard() {
 
 
     return (
-        <div>
+        <div className="d-flex flex-column-reverse">
             {sessions.map(sessionObj =>
 
                 <div key={sessionObj._id} className="row hero-subtitle d-flex flex-row-reverse">
                     <div className="col-6 text-center mt-5">
-                        <img className="img-fluid movie-img mt-3" src={`https://image.tmdb.org/t/p/w500/${sessionObj.movie?.poster_path}`} alt="movie" />
+                        <Link to={`/moviedetails/${sessionObj._id}`}><img className="img-fluid movie-img mt-3" src={`https://image.tmdb.org/t/p/w500/${sessionObj.movie?.poster_path}`} alt="movie" /></Link>
 
                     </div>
                     <div className="col-6 mt-5 p-2">
