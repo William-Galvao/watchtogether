@@ -76,5 +76,32 @@ body {
   margin-top: 15px;
 }
 
+@media screen and (min-width: 600px) {
 
+  .hero {
+    display: none;
+  }
+
+  .movie-card-desktop {
+   
+    width: 50%;
+   
+    
+  }
+
+  .movie-img {
+    border: 2px solid white;
+    border-radius: 10%;
+    width: 150px;
+    height: auto;
+  }
+
+  .teste {
+    flex-direction: row important!;
+    
+  }
+
+
+  
+}
 
