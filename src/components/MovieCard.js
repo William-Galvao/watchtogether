@@ -65,15 +65,16 @@ export default function MovieCard() {
 
                 <div key={sessionObj._id} className="row hero-subtitle d-flex flex-row-reverse movie-card-desktop">
                     <div className="col-6 text-center mt-5">
-                        <a rel="noreferrer" className="fab fa-instagram"
-                            target="_blank" href={`https://www.themoviedb.org/movie/${sessionObj.movie.id}`} ><img className="img-fluid movie-img mt-3" src={`https://image.tmdb.org/t/p/w500/${sessionObj.movie?.poster_path}`} alt="movie" /></a>
+
+                        <img className="img-fluid movie-img mt-3" src={`https://image.tmdb.org/t/p/w500/${sessionObj.movie?.poster_path}`} alt="movie" />
+
 
                     </div>
                     <div className="col-6 mt-5 p-2">
                         <h3 className="row-bottom-margin" style={{ paddingTop: "10px" }}>{sessionObj.movie?.title}</h3>
                         <p className="row-bottom-margin">{(sessionObj.date).replace("T", " ")}</p>
                         <p className="mt-3">{checkStreaming(sessionObj.streaming)}</p>
-                        <a rel="noreferrer" className="fab fa-instagram"
+                        <a rel="noreferrer"
                             target="_blank" href={sessionObj.address} ><p className="mt-3">{checkVoip(sessionObj.voip)}</p></a>
                         <div className="d-flex justify-content-around">
                             <Link to={`/editsession/${sessionObj._id}`}><button type="button" className="btn btn-warning">Edit</button></Link>
